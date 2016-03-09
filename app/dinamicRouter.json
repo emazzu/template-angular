@@ -1,0 +1,19 @@
+[{
+    "name": "index.2003",
+    "url": "/2003",
+    "parent": "",
+    "templateUrl": "modules/2003/2003-view.html",
+    "abstract": false,
+    "data": {
+        "module": "2003"
+    }
+}, {
+    "name": "index.2005",
+    "url": "/2005",
+    "parent": "",
+    "templateUrl": "modules/2005/2005-view.html",
+    "abstract": false,
+    "data": {
+        "module": "2005"
+    }
+}]

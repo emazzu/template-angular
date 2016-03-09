@@ -1,0 +1,46 @@
+/*emazzu - 06/03/2016 - separe las clases que voy agregando asi no molestan en el index*/
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+/*  CUSTOMIZE scrolling - https://css-tricks.com/custom-scrollbars-in-webkit */
+
+
+::-webkit-scrollbar{
+    width: 10px;
+    background: #dbe8ec;
+}
+::-webkit-scrollbar-button{
+    background:#F3F3F4;
+    width: 10px;
+    height: 0px;
+}
+::-webkit-scrollbar-track{
+    background:#F3F3F4;
+    border:thin solid #F3F3F4;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background: -webkit-linear-gradient(top, #F8F8FC, #F8F8FC);
+    -webkit-box-shadow:   inset 0 1px 0 rgba(255,255,225,.5),
+        inset 1px 0 0 rgba(255,255,255,.4),
+        inset 0 1px 2px rgba(255,255,255,.3);
+
+    border:thin solid #BDBEC5;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    //    background: -webkit-linear-gradient(top, #1AB394, #1AB394);
+}
+
+/* Pseudo-clase */
+::-webkit-scrollbar-thumb:window-inactive {
+    background: hidden;
+}            
