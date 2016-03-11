@@ -37,10 +37,32 @@ html, body {
     -webkit-border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover{
-    //    background: -webkit-linear-gradient(top, #1AB394, #1AB394);
+    //    background: -webkit-linear-grabottomnt(top, #1AB394, #1AB394);
 }
+
 
 /* Pseudo-clase */
 ::-webkit-scrollbar-thumb:window-inactive {
     background: hidden;
-}            
+}  
+
+/* para los <a> de los shortCut */
+.tab {
+    color: gray;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* change color cuando mouse over */
+.tab:hover {
+    color: #1AB394;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #1AB394;
+    padding-bottom: 6px;
+}
+
+/* delete recuadro punteado para IE9 */
+.tab:active, :focus {
+    outline: none !important; -moz-outline-style: none !important;
+}

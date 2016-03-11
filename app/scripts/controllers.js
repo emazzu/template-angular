@@ -111,7 +111,7 @@ function NavigationCtrl($scope, $state, $rootScope) {
         //        mark como favorita la opción seleccionada
         for(var i = 0; i < $scope.menu.length; i++ ) {
             if ($scope.menu[i].Id == item.Id) {
-                $scope.menu[i].Authorized = Math.round(Math.random());
+//                $scope.menu[i].Authorized = Math.round(Math.random());
                 break;  
             }
         }
@@ -121,13 +121,14 @@ function NavigationCtrl($scope, $state, $rootScope) {
 
     $scope.selectedModule = function(item) {
 
+
         //        clean última busqueda
         $scope.searchModule = "";
 
 
-        //        assing módulo selecionado a json global para tener acceso desde cualquier controlador y vista
-        $rootScope.currentModule = item;
-        
+        //        assing info. de módulo selecionado a json global para tener acceso desde controllers
+        $rootScope.currentModules = item;
+
 
         //        mark como favorita la opción seleccionada
         for(var i = 0; i < $scope.menu.length; i++ ) {
@@ -143,7 +144,13 @@ function NavigationCtrl($scope, $state, $rootScope) {
             return
         }
 
-
+        //        assing info. de módulo selecionado a json global para shortCuts
+        //        check si no existe previamente
+        if ($rootScope.shortCuts.indexOf(item) == -1) {
+            $rootScope.shortCuts.unshift(item);    
+        }
+        
+        
         //        render vista dinamica, con módulo como parametro
         //        pasa por then por OK, pasa por function por ERROR
         //        como es dinamico, puede ser que me haya olvidado el html
@@ -151,7 +158,7 @@ function NavigationCtrl($scope, $state, $rootScope) {
         }, function() {
             $state.go("index.404view")
         });
-
+        
     };
 
 

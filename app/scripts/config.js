@@ -52,13 +52,13 @@ angular
     $rootScope.$state = $state;
 
     //    define json para tener info en todo momento del módulo seleccionado
-    $rootScope.currentModule = "";
+    $rootScope.currentModules = "";
 
     //    define json para tener info en todo momento del usuario
     $rootScope.currentUser = {"picture": "", "name": "Eduardo Mazzucchelli", "userName": "xmazzuce", "updated": "23.11.2016", "version": "2016.03.09"};
 
-
-
+    //    define array de json para tener info de los shortCut
+    $rootScope.shortCuts = [];
 
 
     //  show estados definidos
