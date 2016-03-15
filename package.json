@@ -1,9 +1,11 @@
 {
   "name": "INSPINIA",
   "version": "2.2.0",
-  "description": "INSPINIA - Responsive Admin Theme",
+  "description": "DSInfo - Skeleton with Theme Inspinia",
   "dependencies": {
-    "grunt": "^0.4.5"
+    "grunt": "^0.4.5",
+    "gmaps": "^0.4.22",
+    "gmaps-bower": "0.0.3"      
   },
   "devDependencies": {
     "grunt": "^0.4.5",

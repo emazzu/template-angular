@@ -46,8 +46,8 @@
     <!-- ControllerAs syntax -->
     <!-- Main controller with serveral data used in Inspinia theme on diferent view - emazzu - 02/03/2016 - overflow hidden -->
     <body>
-        
-        
+
+
         <!-- Main view  -->
         <div ui-view></div>
 
@@ -73,6 +73,14 @@
         <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
         <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
+
+        <!--        google maps 
+                    the package.json bajas las librerias, pero no me funciona, por ahora la referencie directo al CDN            
+        -->
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.22/gmaps.min.js"></script>
+    
+
         <!-- Angular Dependiences -->
         <!--                      -->
         <!--                      -->
@@ -88,11 +96,15 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/config.js"></script>
         <script src="scripts/directives.js"></script>
-        <script src="scripts/controllers.js"></script>
-        
-        <script src="modules/1001/1001controller.js"></script>
-        
+        <script src="scripts/ctrl.js"></script>
+
+        <script src="modules/0000/0000ctrl.js"></script>        
+        <script src="modules/1001/1001ctrl.js"></script>
+
         <!-- endbuild -->
 
     </body>
 </html>
+
+
+

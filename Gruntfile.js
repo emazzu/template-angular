@@ -110,6 +110,8 @@ module.exports = function (grunt) {
             server: '.tmp'
         },
         // Copies remaining files to places other tasks can use
+        // emazzu - 14/03/2016 - 'modules/{,*/}*.html'
+        //
         copy: {
             dist: {
                 files: [
@@ -124,7 +126,8 @@ module.exports = function (grunt) {
                             '*.html',
                             'views/{,*/}*.html',
                             'styles/patterns/*.*',
-                            'img/{,*/}*.*'
+                            'img/{,*/}*.*',
+                            'modules/{,*/}*.html'
                         ]
                     },
                     {

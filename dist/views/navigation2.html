@@ -1,1 +1,1 @@
-<div class="row wrapper border-bottom white-bg page-heading" style="height: 33px"> <div class="col-lg-12"> <div class="pull-left" style="padding: 6px" ng-repeat="item in shortCuts"> <a class="tab"> {{item.Name}} </a> </div> </div> </div>
+<div class="row wrapper border-bottom white-bg page-heading" style="height: 33px" ng-controller="NavigationCtrl"> <div class="col-lg-12"> <div class="pull-left" style="padding: 6px" ng-repeat="item in shortCuts"> <a class="tab" href ng-click="selectedModule(item);"> {{item.Name}} </a> </div> </div> </div>

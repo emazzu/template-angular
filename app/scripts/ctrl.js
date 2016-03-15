@@ -9,7 +9,6 @@
 */
 function NavigationCtrl($scope, $state, $rootScope) {
 
-
     $scope.menu = [
         {"Id":"1", "Name":"Wells", "Description":"Así, en una página sobre puede haber una palabra.", "Favorite":"0", "Authorized":"false"},
         {"Id":"2", "Name":"Survey Limits", "Description":"Así, en una página sobre puede haber una palabra.", "Favorite":"0", "Authorized":"false"},
@@ -111,7 +110,7 @@ function NavigationCtrl($scope, $state, $rootScope) {
         //        mark como favorita la opción seleccionada
         for(var i = 0; i < $scope.menu.length; i++ ) {
             if ($scope.menu[i].Id == item.Id) {
-//                $scope.menu[i].Authorized = Math.round(Math.random());
+                //                $scope.menu[i].Authorized = Math.round(Math.random());
                 break;  
             }
         }
@@ -144,13 +143,22 @@ function NavigationCtrl($scope, $state, $rootScope) {
             return
         }
 
-        //        assing info. de módulo selecionado a json global para shortCuts
+        //        assing módulo selecionado al array global que mantiene los shortCuts
         //        check si no existe previamente
+        //        pull con shift primer elemento, que es "Maps" y con unshift lo vuelvo a insertar
+        //        en la primera posición corriendo al resto, un truco para que siempre quede primero
         if ($rootScope.shortCuts.indexOf(item) == -1) {
-            $rootScope.shortCuts.unshift(item);    
+            var getMaps = $rootScope.shortCuts.shift();
+            $rootScope.shortCuts.unshift(item);
+            $rootScope.shortCuts.unshift(getMaps);
+
+            //    check si supero los 7 items, quito el último elemento, que en realidad, es el primero que entro
+            if ($rootScope.shortCuts.length > 7) {
+                $rootScope.shortCuts.pop();
+            }
         }
-        
-        
+
+
         //        render vista dinamica, con módulo como parametro
         //        pasa por then por OK, pasa por function por ERROR
         //        como es dinamico, puede ser que me haya olvidado el html
@@ -158,7 +166,7 @@ function NavigationCtrl($scope, $state, $rootScope) {
         }, function() {
             $state.go("index.404view")
         });
-        
+
     };
 
 

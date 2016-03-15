@@ -1,5 +1,5 @@
 angular.module("inspinia")
-    .controller("Controller1001", function ($scope) {
+    .controller("1001controller", function ($scope) {
 
 
     //    declare variables de ambito global al controller

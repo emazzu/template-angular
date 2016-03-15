@@ -34,6 +34,10 @@ function config($stateProvider, $urlRouterProvider) {
         data: { pageTitle: 'Example view' }
     })
 
+        .state('index.maps', {
+        url: "/maps",
+        templateUrl: "modules/0000/0000view.html"
+    })
 
     //        ruteo dinámico, con esto ahorro por módulo 120 caracteres
         .state('index.dinamic', {
@@ -58,7 +62,7 @@ angular
     $rootScope.currentUser = {"picture": "", "name": "Eduardo Mazzucchelli", "userName": "xmazzuce", "updated": "23.11.2016", "version": "2016.03.09"};
 
     //    define array de json para tener info de los shortCut
-    $rootScope.shortCuts = [];
+    $rootScope.shortCuts = [{"Id":"0000", "Name":"Google Maps", "Description":"Así, en una página sobre puede haber una palabra.", "Favorite":"0", "Authorized":"false"}];
 
 
     //  show estados definidos
