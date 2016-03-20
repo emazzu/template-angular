@@ -9,14 +9,14 @@
     <br>
     <div class="error-desc well">
         <h3 class="font-bold">{{currentModules.Name}} - ({{currentModules.Id}})</h3>
-        {{currentModules.Description}}
-    </div>
-    <div>
-        In folder <code>modules/templates</code>, You have some templates to use as reference !!!
-    </div>
-    <br>
-    <div>
-        You have to create: <code>{{currentModules.Id}}view.html</code> and <code>{{currentModules.Id}}ctrl.js</code> !!!
+        <hr>
+        In folder <code>modules/templates</code>, You have some templates to use as reference. You can customize it !!!
+        <hr>
+        Within <code>modules</code>, you have to create forder <code>{{currentModules.Id}}</code>, and into, 
+        <br>
+        the files <code>{{currentModules.Id}}view.html</code> and <code>{{currentModules.Id}}ctrl.js</code>.
+        <br><br>
+        After that, add controller to index.html<code>modules/{{currentModules.Id}}/{{currentModules.Id}}ctrl.js</code>. !!!
     </div>
 
 </div>

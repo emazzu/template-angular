@@ -4,8 +4,47 @@
  */
 
 
-/*
-    MenuCtrl - controller
+
+//  emazzu - 17/03/2016 - Login
+function MainCtrl($rootScope, $scope, $http, auth, store, $location, $state) {
+
+    //  auth0 - metodo tomado de la documentación de auth0
+    $scope.login = function () {
+        console.log("auth0 - signin");
+        auth.signin({
+            closable: false,
+            popup: false,
+            socialBigButtons: true,
+            connections: ['google-oauth2','linkedin']
+        }, function (profile, token) {
+            // Success callback
+            store.set('profile', profile);
+            store.set('token', token);
+            //$location.path('/index.maps');
+            $state.go("index.maps");
+        }, function (err) {
+            return alert('error profile: ' + JSON.stringify(err));
+        });
+    }
+
+
+    //  auth0 - metodo tomado de la documentación de auth0
+    $scope.logout = function() {
+        auth.signout();
+        store.remove('profile');
+        store.remove('token');
+        //$location.path('/index.login');
+    }
+
+    //  emazzu - 17/03/2016
+    //  scope global, esto es para que tenga visibilidad desde toda la app
+    $scope.auth = auth;
+
+};
+
+
+
+/*  MenuCtrl - controller
 */
 function NavigationCtrl($scope, $state, $rootScope) {
 
@@ -107,7 +146,7 @@ function NavigationCtrl($scope, $state, $rootScope) {
 
     $scope.authorized = function(item) {
 
-        //        mark como favorita la opción seleccionada
+        // mark como favorita la opción seleccionada
         for(var i = 0; i < $scope.menu.length; i++ ) {
             if ($scope.menu[i].Id == item.Id) {
                 //                $scope.menu[i].Authorized = Math.round(Math.random());
@@ -121,7 +160,7 @@ function NavigationCtrl($scope, $state, $rootScope) {
     $scope.selectedModule = function(item) {
 
 
-        //        clean última busqueda
+        // clean última busqueda
         $scope.searchModule = "";
 
 
@@ -129,7 +168,7 @@ function NavigationCtrl($scope, $state, $rootScope) {
         $rootScope.currentModules = item;
 
 
-        //        mark como favorita la opción seleccionada
+        // mark como favorita la opción seleccionada
         for(var i = 0; i < $scope.menu.length; i++ ) {
             if ($scope.menu[i].Id == item.Id) {
                 $scope.menu[i].Favorite = "1";
@@ -143,10 +182,11 @@ function NavigationCtrl($scope, $state, $rootScope) {
             return
         }
 
-        //        assing módulo selecionado al array global que mantiene los shortCuts
-        //        check si no existe previamente
-        //        pull con shift primer elemento, que es "Maps" y con unshift lo vuelvo a insertar
-        //        en la primera posición corriendo al resto, un truco para que siempre quede primero
+        // assing módulo selecionado al array global que mantiene los shortCuts
+        // check si no existe previamente
+        // pull con shift primer elemento, que es "Maps" y con unshift lo vuelvo a
+        // insertar
+        // en la primera posición corriendo al resto, un truco para que siempre quede primero
         if ($rootScope.shortCuts.indexOf(item) == -1) {
             var getMaps = $rootScope.shortCuts.shift();
             $rootScope.shortCuts.unshift(item);
@@ -159,9 +199,9 @@ function NavigationCtrl($scope, $state, $rootScope) {
         }
 
 
-        //        render vista dinamica, con módulo como parametro
-        //        pasa por then por OK, pasa por function por ERROR
-        //        como es dinamico, puede ser que me haya olvidado el html
+        // render vista dinamica, con módulo como parametro
+        // pasa por then por OK, pasa por function por ERROR
+        // como es dinamico, puede ser que me haya olvidado el html
         $state.go("index.dinamic", {Id: item.Id}).then(function() {
         }, function() {
             $state.go("index.404view")
@@ -176,8 +216,4 @@ function NavigationCtrl($scope, $state, $rootScope) {
 angular
     .module('inspinia')
     .controller('NavigationCtrl', NavigationCtrl)
-
-
-
-//        $state.go("index.dinamic", {Id:item.Id}, {Name: item.Name}, {Description: item.Description});
-//$state.go( "index.dinamic", {Id: item.Id}, {myParams: [{Name: item.Name}, {Description: item.Description}]} );
+    .controller('MainCtrl', MainCtrl)

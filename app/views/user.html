@@ -5,16 +5,17 @@
         </a>
         <ul class="dropdown-menu dropdown-messages"
             style="top: 61px;">
-            <li>
-                <div class="dropdown-messages-box">
+            <li style="">
+                <div class="dropdown-messages-box" style="background-color: #F3F3F4;">
                     <a ui-sref="profile" class="pull-left">
-                        <img alt="image" class="img-circle" style="height: 60px; width: 60px;" src={{currentUser.picture}}>
+                        <img alt="image" class="img-circle" style="height: 80px; width: 80px;" src="{{auth.profile.picture}}">
                     </a>
                     <div>
                         <br>
-                        <strong>{{currentUser.name}}</strong>
                         <br>
-                        <small class="text-muted"><strong>Last Update</strong>&nbsp&nbsp{{currentUser.updated | date:"dd.MM.yyyy"}}</small>
+                        <strong>{{auth.profile.name}}</strong>
+                        <br>
+                        <small class="text-muted"><strong>Last Update</strong>&nbsp&nbsp{{auth.profile.updated_at | date:"dd.MM.yyyy"}}</small>
                         <br><br>
 
                     </div>
@@ -22,9 +23,18 @@
             </li>
             <li class="divider"></li>
             <li>
-                <div class="text-center text-muted">
-                    <p>User Name</p>
-                    <strong>{{currentUser.userName}}</strong>
+                <div class="text-center">
+                    <text class="text-muted">Email</text>
+                    <br>
+                    <strong>{{auth.profile.email}}</strong>
+                </div>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <div class="text-center">
+                    <text class="text-muted">User Id</text>
+                    <br>
+                    {{auth.profile.user_id}}
                 </div>
             </li>
             <li class="divider"></li>
@@ -36,7 +46,8 @@
             <li class="divider"></li>
             <li>
                 <div class="text-center link-block">
-                    <a ui-sref="login" ng-click="logout()">
+                    <!-- call método logout y cambia el estado en ui-route a login.html -->
+                    <a  ng-click="logout()">
                         <i class="fa fa-sign-out"></i>
                         <strong>Log Out</strong>
                     </a>

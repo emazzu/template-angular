@@ -1,6 +1,7 @@
 angular.module("inspinia")
     .controller("0000ctrl", function ($scope) {
 
+
     var map = GMaps({
         el: '#map',
         lat: -12.043333,
@@ -17,7 +18,6 @@ angular.module("inspinia")
     $scope.metodoUno = function() {
         $scope.metodo1 = "metodo 1";
     };
-
 
 
 });
